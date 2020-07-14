@@ -1,0 +1,34 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LaunchViewer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
+    x:Class="LaunchViewer.MainPage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+            <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Grid.Row="0" Grid.Column="0" >
+                <ToggleButton Style="{StaticResource SymbolButton}" Foreground="{ThemeResource ApplicationForegroundThemeBrush}">
+                    <ToggleButton.Content>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;" />
+                    </ToggleButton.Content>
+                </ToggleButton>
+            </Border>
+
+        <TextBlock Text="Sentry: Thursday, April 2, 2020 6:54 PM" Style="{StaticResource TagLineTextStyle}" Margin="0,15,0,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" />
+        
+    </Grid>
+</Page>
