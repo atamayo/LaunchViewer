@@ -11,9 +11,7 @@ namespace LaunchViewer.ViewModel
         public string MSG { get; set; }
         public MainViewModel()
         {
-            MSG = DateTime.Now.ToLongTimeString();
-
-
+            MSG = $"Sentry: {DateTime.Now.ToLongDateString()} {DateTime.Now.ToLongTimeString()}";
         }
     }
 }
