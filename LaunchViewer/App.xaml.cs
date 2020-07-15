@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LaunchViewer.MainView;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -71,6 +72,13 @@ namespace LaunchViewer
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+
+#if DEBUG
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
+                this.DebugSettings.EnableFrameRateCounter = true;
+            }
+#endif
         }
 
         /// <summary>

@@ -1,17 +1,21 @@
-﻿using System;
+﻿using LaunchViewer.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaunchViewer.ViewModel
+namespace LaunchViewer.MainView
 {
     public class MainViewModel
     {
         public string MSG { get; set; }
-        public MainViewModel()
+        public IVideoBrowserViewModel VideoBrowserViewModel { get; }
+
+        public MainViewModel(IVideoBrowserViewModel videoBrowserViewModel)
         {
             MSG = $"Sentry: {DateTime.Now.ToLongDateString()} {DateTime.Now.ToLongTimeString()}";
+            VideoBrowserViewModel = videoBrowserViewModel;
         }
     }
 }

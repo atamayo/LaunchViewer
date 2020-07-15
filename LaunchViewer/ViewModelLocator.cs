@@ -1,14 +1,18 @@
 ﻿using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
+using LaunchViewer.MainView;
+using LaunchViewer.Services.USB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Core;
+using Windows.UI.Xaml.Controls;
 
 namespace LaunchViewer.ViewModel
 {
-    public class ViewModelLocator
+    public class ViewModelLocator : Page
     {/// <summary>
      /// Initializes a new instance of the ViewModelLocator class.
      /// </summary>
@@ -16,17 +20,9 @@ namespace LaunchViewer.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
-
+            SimpleIoc.Default.Register(() => Dispatcher);
+            SimpleIoc.Default.Register<IPortableStorageService, PortableStorageService>();
+            SimpleIoc.Default.Register<IVideoBrowserViewModel, VideoBrowserViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
@@ -40,7 +36,7 @@ namespace LaunchViewer.ViewModel
 
         public static void Cleanup()
         {
-            // TODO Clear the ViewModels
+            
         }
     }
 }
