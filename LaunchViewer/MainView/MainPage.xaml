@@ -15,7 +15,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-
+        
         <Border  Grid.Row="0">
             <ToggleButton Style="{StaticResource SymbolButton}" Click="ToggleButton_Click" Foreground="{ThemeResource ApplicationForegroundThemeBrush}">
                 <ToggleButton.Content>
@@ -26,12 +26,18 @@
 
         <TextBlock Text="{Binding MSG}"  Style="{StaticResource TagLineTextStyle}" Margin="0,15,0,0" Grid.Row="0" HorizontalAlignment="Center" />
 
-        <SplitView x:Name="Splitter" IsPaneOpen="False" Grid.Row="1" DisplayMode="Inline"  HorizontalAlignment="Left" Width="1500" >
+        <SplitView x:Name="Splitter" IsPaneOpen="False" Grid.Row="1" DisplayMode="Inline" >
             <SplitView.Pane>
                 <RelativePanel Background="White">
-                    <my:VideoBrowserView DataContext="{Binding VideoBrowserViewModel}" />
+                    <my:VideoBrowserView DataContext="{Binding VideoBrowserViewModel}" Width="320"/>
                 </RelativePanel>
             </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <TextBlock Text="Content" FontSize="54" Foreground="White"  
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </SplitView.Content>
         </SplitView>
     </Grid>
 

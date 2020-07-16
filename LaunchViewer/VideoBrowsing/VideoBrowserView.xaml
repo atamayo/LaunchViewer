@@ -12,18 +12,19 @@
 
     <Grid >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition> 
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <ComboBox SelectedItem="{Binding SelectedDevice}" ItemsSource="{Binding ResultCollection}" Grid.Column="0" Grid.Row="0" >
+
+        <ComboBox SelectedItem="{Binding SelectedDevice}" ItemsSource="{Binding ResultCollection}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" >
+            
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                       <TextBlock Text="{Binding Label}" VerticalAlignment="Center" FontSize="14"  />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                        <TextBlock Text="{Binding Label}" VerticalAlignment="Center" FontSize="14"  HorizontalAlignment="Stretch"  />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
