@@ -21,6 +21,7 @@ namespace LaunchViewer.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register(() => Dispatcher);
+            SimpleIoc.Default.Register<IDeviceInformationDisplayFactory, DeviceInformationDisplayFactory>();
             SimpleIoc.Default.Register<IPortableStorageService, PortableStorageService>();
             SimpleIoc.Default.Register<IVideoBrowserViewModel, VideoBrowserViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();

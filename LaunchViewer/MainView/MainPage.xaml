@@ -7,17 +7,16 @@
     xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
     x:Class="LaunchViewer.MainView.MainPage"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     DataContext="{Binding Main, Source={StaticResource Locator}}">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
 
-        <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Grid.Row="0">
+
+        <Border  Grid.Row="0">
             <ToggleButton Style="{StaticResource SymbolButton}" Click="ToggleButton_Click" Foreground="{ThemeResource ApplicationForegroundThemeBrush}">
                 <ToggleButton.Content>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;" />
@@ -25,11 +24,11 @@
             </ToggleButton>
         </Border>
 
-        <TextBlock  Text="{Binding MSG}"  Style="{StaticResource TagLineTextStyle}" Margin="0,15,0,0" Grid.Row="0" HorizontalAlignment="Center" />
+        <TextBlock Text="{Binding MSG}"  Style="{StaticResource TagLineTextStyle}" Margin="0,15,0,0" Grid.Row="0" HorizontalAlignment="Center" />
 
-        <SplitView x:Name="Splitter" IsPaneOpen="False" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" DisplayMode="Inline">
+        <SplitView x:Name="Splitter" IsPaneOpen="False" Grid.Row="1" DisplayMode="Inline"  HorizontalAlignment="Left" Width="1500" >
             <SplitView.Pane>
-                <RelativePanel>
+                <RelativePanel Background="White">
                     <my:VideoBrowserView DataContext="{Binding VideoBrowserViewModel}" />
                 </RelativePanel>
             </SplitView.Pane>

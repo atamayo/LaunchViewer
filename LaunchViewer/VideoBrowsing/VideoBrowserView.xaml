@@ -8,27 +8,24 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-   
-    <Grid>
-        <ComboBox SelectedItem="{Binding SelectedDevice}" ItemsSource="{Binding ResultCollection}">
-            <!--<ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="{Binding GlyphBitmapImage}" />
-                        <TextBlock Text="{Binding Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>-->
+    xmlns:Custom="using:Microsoft.UI.Xaml.Controls">
 
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition> 
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <ComboBox SelectedItem="{Binding SelectedDevice}" ItemsSource="{Binding ResultCollection}" Grid.Column="0" Grid.Row="0" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="0 5 0 5"  >
-                    <Image Width="20" Height="20" Stretch="Fill" Source="{Binding GlyphBitmapImage}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,15,0"/>
-                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
-                </StackPanel>
-            </DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                       <TextBlock Text="{Binding Label}" VerticalAlignment="Center" FontSize="14"  />
+                    </StackPanel>
+                </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
     </Grid>

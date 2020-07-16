@@ -14,7 +14,7 @@
   <mp:PhoneIdentity PhoneProductId="1fdfe65e-5bb3-4a5b-a342-e86acb7845c3" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>LaunchViewer</DisplayName>
+    <DisplayName>Tesla LaunchViewer</DisplayName>
     <PublisherDisplayName>tamay</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -32,18 +32,20 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="LaunchViewer.App">
       <uap:VisualElements
-        DisplayName="LaunchViewer"
+        DisplayName="Tesla Launch Viewer"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="LaunchViewer"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="landscapeFlipped"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>
 
   <Capabilities>
-    <Capability Name="internetClient" />
-  </Capabilities>
+    <uap:Capability Name="removableStorage"/></Capabilities>
 </Package>
