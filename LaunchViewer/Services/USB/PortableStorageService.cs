@@ -43,6 +43,7 @@ namespace LaunchViewer.Services.USB
                 if (IsWatcherStarted(sender))   
                 {
                     var deviceInfoDisplay = await _deviceInformationDisplayFactory.Create(deviceInfo);
+                    if(null != deviceInfoDisplay)
                     ResultCollection.Add(deviceInfoDisplay);
                 }
             });

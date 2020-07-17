@@ -31,7 +31,9 @@ namespace LaunchViewer
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            
         }
+
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -59,6 +61,7 @@ namespace LaunchViewer
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
+            
 
             if (e.PrelaunchActivated == false)
             {
@@ -101,6 +104,7 @@ namespace LaunchViewer
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
+            
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }

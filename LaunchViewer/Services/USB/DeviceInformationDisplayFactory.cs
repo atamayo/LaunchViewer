@@ -14,13 +14,23 @@ namespace LaunchViewer.Services.USB
     {
         public async Task<DeviceInformationDisplay> Create(DeviceInformation deviceInfo)
         {
-            var usb = Windows.Devices.Portable.StorageDevice.FromId(deviceInfo.Id);
+            DeviceInformationDisplay deviceInfoDisplay = null;
 
-            // Application now has read/write access to all contents in the picked folder (including other sub-folder contents)
-            var folder = await StorageFolder.GetFolderFromPathAsync(usb.Path);
-            StorageApplicationPermissions.FutureAccessList.AddOrReplace("PickedFolderToken", folder);
+            var usbPath = Windows.Devices.Portable.StorageDevice.FromId(deviceInfo.Id).Path;
+            
+            if (!string.IsNullOrEmpty(usbPath))
+            {
+                var folder = await StorageFolder.GetFolderFromPathAsync(usbPath);
 
-            return new DeviceInformationDisplay(deviceInfo.Id, usb.DisplayName, usb.Path);
+                if (null != folder)
+                {
+                    // Application now has read/write access to all contents in the picked folder (including other sub-folder contents)
+                    StorageApplicationPermissions.FutureAccessList.AddOrReplace("PickedFolderToken", folder);
+                    deviceInfoDisplay = new DeviceInformationDisplay(deviceInfo.Id, folder);
+                }
+            }
+
+            return deviceInfoDisplay;
         }
         
     }

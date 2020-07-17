@@ -19,15 +19,31 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ComboBox SelectedItem="{Binding SelectedDevice}" ItemsSource="{Binding ResultCollection}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" >
+        <ComboBox SelectedItem="{Binding SelectedDevice, Mode=TwoWay}" 
+                  PlaceholderText="Pick a USB" 
+                  ItemsSource="{Binding ResultCollection}" 
+                  Grid.Column="0" Grid.Row="0" 
+                  VerticalAlignment="Center" 
+                  DisplayMemberPath="Label"
+                  HorizontalAlignment="Stretch">
             
-            <ComboBox.ItemTemplate>
+            <!--<ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
                         <TextBlock Text="{Binding Label}" VerticalAlignment="Center" FontSize="14"  HorizontalAlignment="Stretch"  />
                     </StackPanel>
                 </DataTemplate>
-            </ComboBox.ItemTemplate>
+            </ComboBox.ItemTemplate>-->
         </ComboBox>
+
+        <ListView  Grid.Column="1" Grid.Row="1"  SelectionMode="Single" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0"
+                 VerticalAlignment="Top" Margin="0,10,0,0"
+                 ItemsSource="{Binding SentryEventItemsViewSource}">
+            <!--<ListView.ItemTemplate>
+                <DataTemplate >
+                    <TextBlock Text="Item"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>-->
+        </ListView>
     </Grid>
 </UserControl>
