@@ -1,4 +1,4 @@
-﻿using LaunchViewer.VideoBrowsing;
+﻿using LaunchViewer.ClipBrowsing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +10,12 @@ namespace LaunchViewer.MainView
     public class MainViewModel
     {
         public string MSG { get; set; }
-        public IVideoBrowserViewModel VideoBrowserViewModel { get; }
+        public IClipBrowserViewModel ClipBrowserViewModel { get; }
 
-        public MainViewModel(IVideoBrowserViewModel videoBrowserViewModel)
+        public MainViewModel(IClipBrowserViewModel clipBrowserViewModel)
         {
             MSG = $"Sentry: {DateTime.Now.ToLongDateString()} {DateTime.Now.ToLongTimeString()}";
-            VideoBrowserViewModel = videoBrowserViewModel;
+            ClipBrowserViewModel = clipBrowserViewModel;
         }
     }
 }

@@ -15,11 +15,11 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace LaunchViewer.VideoBrowsing
+namespace LaunchViewer.ClipBrowsing
 {
-    public sealed partial class VideoBrowserView : UserControl
+    public sealed partial class ClipBrowserView : UserControl
     {
-        public VideoBrowserView()
+        public ClipBrowserView()
         {
             this.InitializeComponent();
         }

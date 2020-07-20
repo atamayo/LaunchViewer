@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaunchViewer.VideoBrowsing
+namespace LaunchViewer.ClipBrowsing
 {
-    public interface IVideoBrowserViewModel
+    public interface IClipBrowserViewModel
     {
         ObservableCollection<DeviceInformationDisplay> ResultCollection { get; }
         ObservableCollection<Clip> SentryEventItemsViewSource { get; }

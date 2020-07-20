@@ -1,16 +1,20 @@
 ﻿using GalaSoft.MvvmLight;
 using LaunchViewer.Model;
 using LaunchViewer.Services.USB;
+using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text;
 using System.Threading.Tasks;
+using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.UI.Core;
+using Windows.UI.Xaml.Media.Imaging;
 
-namespace LaunchViewer.VideoBrowsing
+namespace LaunchViewer.ClipBrowsing
 {
-    public class VideoBrowserViewModel : ViewModelBase, IVideoBrowserViewModel
+    public class ClipBrowserViewModel : ViewModelBase, IClipBrowserViewModel
     {
         private DeviceInformationDisplay _selectedDevice;
 
@@ -19,11 +23,10 @@ namespace LaunchViewer.VideoBrowsing
         public ObservableCollection<DeviceInformationDisplay> ResultCollection => PortableStorageService.ResultCollection;
 
         public ObservableCollection<Clip> SentryEventItemsViewSource { get; }
-        private readonly CoreDispatcher _dispatcher;
+        
 
-        public VideoBrowserViewModel(CoreDispatcher coreDispatcher, IPortableStorageService portableStorageService)
+        public ClipBrowserViewModel(IPortableStorageService portableStorageService)
         {
-            _dispatcher = coreDispatcher;
             PortableStorageService = portableStorageService;
             PortableStorageService.Start();
             SentryEventItemsViewSource = new ObservableCollection<Clip>();
@@ -56,31 +59,50 @@ namespace LaunchViewer.VideoBrowsing
 
             if (null != selectedDevice)
             {
-                //await _dispatcher.RunAsync(CoreDispatcherPriority.Low, async () =>
-                //{
-
-               
 
                 var folders2 = await selectedDevice.StorageFolder.GetFolderAsync("TeslaCam\\SentryClips");
 
-                var files = await folders2.GetItemsAsync();
+                var folders = await folders2.GetFoldersAsync();
 
-                foreach (var file in files)
+                foreach (var folder in folders)
                 {
-                    
-                    
+                    var thumbSource = folder.Path + @"\thumb.png";
+                    var jsonPath = folder.Path + @"\event.json";
 
-                    SentryEventItemsViewSource.Add(new Clip(file.Name));
-                  
+                    StorageFile sfi =  await StorageFile.GetFileFromPathAsync(thumbSource);
+
+                    StorageFile json = await StorageFile.GetFileFromPathAsync(jsonPath);
+
+                    // Uri uri = new Uri(thumbSource);
+                    //  BitmapImage thumbImage = new BitmapImage(uri);
+                    // var thumbImage = new BitmapImage(new Uri("ms-appx:///Assets/windows-sdk.png"));
+
+                    var thumbImage = await  FromStorageFile(sfi);
+                    var jonText = await StringFromStorageFile(json);
+
+                    var clipEvent = new ClipEvent(jonText);
+
+                    SentryEventItemsViewSource.Add(new Clip(thumbImage, clipEvent.Time, clipEvent.City));
+                    // var files = await folder.GetFilesAsync();
+
+                    
                 }
+                
+            }
+        }
 
-                //});
-                //var folders = await GetFiles(selectedDevice.StorageFolder);
+        public static async Task<string> StringFromStorageFile(StorageFile sf)
+        {
+            return await Windows.Storage.FileIO.ReadTextAsync(sf);
+        }
 
-                //foreach (var folder in folders)
-                //{
-                //    Debug.WriteLine(folder);
-                //}
+        public static async Task<BitmapImage> FromStorageFile(StorageFile sf)
+        {
+            using (var randomAccessStream = await sf.OpenAsync(FileAccessMode.Read))
+            {
+                var result = new BitmapImage();
+                await result.SetSourceAsync(randomAccessStream);
+                return result;
             }
         }
 

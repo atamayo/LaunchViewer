@@ -2,9 +2,9 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using LaunchViewer.ClipBrowsing;
 using LaunchViewer.MainView;
 using LaunchViewer.Services.USB;
-using LaunchViewer.VideoBrowsing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +41,7 @@ namespace LaunchViewer.ViewModel
             builder.Register(d => Dispatcher);
             builder.RegisterType<DeviceInformationDisplayFactory>().As<IDeviceInformationDisplayFactory>();
 
-            builder.RegisterType<VideoBrowserViewModel>().As<IVideoBrowserViewModel>();
+            builder.RegisterType<ClipBrowserViewModel>().As<IClipBrowserViewModel>();
             builder.RegisterType<MainViewModel>();
             Container = builder.Build();
 

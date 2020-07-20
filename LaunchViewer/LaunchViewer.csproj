@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClipBrowsing\ClipEvent.cs" />
     <Compile Include="Model\ClipType.cs" />
     <Compile Include="Model\Clip.cs" />
     <Compile Include="Model\Video.cs" />
@@ -127,11 +128,11 @@
     <Compile Include="Services\USB\DeviceInformationDisplayFactory.cs" />
     <Compile Include="Services\USB\IDeviceInformationDisplayFactory.cs" />
     <Compile Include="Services\USB\PortableStorageService.cs" />
-    <Compile Include="VideoBrowsing\IVideoBrowserViewModel.cs" />
-    <Compile Include="VideoBrowsing\VideoBrowserView.xaml.cs">
-      <DependentUpon>VideoBrowserView.xaml</DependentUpon>
+    <Compile Include="ClipBrowsing\IClipBrowserViewModel.cs" />
+    <Compile Include="ClipBrowsing\ClipBrowserView.xaml.cs">
+      <DependentUpon>ClipBrowserView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VideoBrowsing\VideoBrowserViewModel.cs" />
+    <Compile Include="ClipBrowsing\ClipBrowserViewModel.cs" />
     <Compile Include="MainView\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -171,7 +172,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VideoBrowsing\VideoBrowserView.xaml">
+    <Page Include="ClipBrowsing\ClipBrowserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

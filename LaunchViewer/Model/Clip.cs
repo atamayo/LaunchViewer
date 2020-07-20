@@ -8,9 +8,11 @@ namespace LaunchViewer.Model
 {
     public class Clip
     {
-        public Clip(string name)
+        public Clip(BitmapImage thumb, DateTime timesstamp, string city)
         {
-            Name = name;
+            Thumb = thumb;
+            Timestamp = timesstamp;
+            City = city;
         }
         public Clip(string name, DateTime timesstamp, string city, BasicGeoposition geoposition, BitmapImage thumb, ClipType clipType, IReadOnlyCollection<Video> videos)
         {
