@@ -120,6 +120,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClipBrowsing\ClipEvent.cs" />
+    <Compile Include="ClipBrowsing\ClipsFolderReader.cs" />
+    <Compile Include="ClipBrowsing\IClipsFolderReader.cs" />
     <Compile Include="Model\ClipType.cs" />
     <Compile Include="Model\Clip.cs" />
     <Compile Include="Model\Video.cs" />

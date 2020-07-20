@@ -40,7 +40,7 @@ namespace LaunchViewer.ViewModel
 
             builder.Register(d => Dispatcher);
             builder.RegisterType<DeviceInformationDisplayFactory>().As<IDeviceInformationDisplayFactory>();
-
+            builder.RegisterType<ClipsFolderReader>().As<IClipsFolderReader>();
             builder.RegisterType<ClipBrowserViewModel>().As<IClipBrowserViewModel>();
             builder.RegisterType<MainViewModel>();
             Container = builder.Build();

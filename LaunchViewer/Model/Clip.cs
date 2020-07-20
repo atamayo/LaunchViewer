@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LaunchViewer.ClipBrowsing;
+using System;
 using System.Collections.Generic;
 using Windows.Devices.Geolocation;
 using Windows.UI.Xaml;
@@ -8,27 +9,20 @@ namespace LaunchViewer.Model
 {
     public class Clip
     {
-        public Clip(BitmapImage thumb, DateTime timesstamp, string city)
+        private ClipEvent _event;
+
+        public Clip(BitmapImage thumb, ClipEvent clipEvent, ClipType clipType, IReadOnlyCollection<Video> videos)
         {
             Thumb = thumb;
-            Timestamp = timesstamp;
-            City = city;
-        }
-        public Clip(string name, DateTime timesstamp, string city, BasicGeoposition geoposition, BitmapImage thumb, ClipType clipType, IReadOnlyCollection<Video> videos)
-        {
-            Name = name;
-            Timestamp = timesstamp;
-            City = city;
-            Geoposition = geoposition;
-            Thumb = thumb;
+            _event = clipEvent;
             Type = clipType;
             Videos = videos;
         }
 
         public string Name { get; private set; }
-        public DateTime Timestamp { get; private set; }
-        public string City { get; private set; }
-        public BasicGeoposition Geoposition { get; private set; }
+        public DateTime Timestamp => _event.Timestamp;
+        public string City => _event.City;
+        public BasicGeoposition Geoposition => _event.Geoposition;
         public BitmapImage Thumb { get; private set; }
         public ClipType Type { get; private set; }
         public IReadOnlyCollection<Video> Videos { get; private  set; }

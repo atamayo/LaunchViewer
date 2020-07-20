@@ -2,10 +2,10 @@
 {
     public class Video
     {
-        public Video(string name)
+        public Video(string path)
         {
-            Name = name;
+            Path = path;
         }
-        public string Name { get; private set; }
+        public string Path { get; private set; }
     }
 }
