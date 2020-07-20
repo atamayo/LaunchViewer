@@ -1,32 +1,23 @@
 ﻿<UserControl
-    x:Class="LaunchViewer.Views.VideoBrowserView"
+    x:Class="LaunchViewer.VideoBrowsing.VideoBrowserView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:LaunchViewer.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400"
-    xmlns:Custom="using:Microsoft.UI.Xaml.Controls">
+    d:DesignWidth="400">
 
-    <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <RelativePanel>
 
-        <ComboBox SelectedItem="{Binding SelectedDevice, Mode=TwoWay}" 
+        <ComboBox x:Name="ComboboxUSB"
+                  SelectedItem="{Binding SelectedDevice, Mode=TwoWay}" 
                   PlaceholderText="Pick a USB" 
                   ItemsSource="{Binding ResultCollection}" 
-                  Grid.Column="0" Grid.Row="0" 
                   VerticalAlignment="Center" 
                   DisplayMemberPath="Label"
                   HorizontalAlignment="Stretch">
-            
+
             <!--<ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
@@ -36,14 +27,10 @@
             </ComboBox.ItemTemplate>-->
         </ComboBox>
 
-        <ListView  Grid.Column="1" Grid.Row="1"  SelectionMode="Single" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0"
-                 VerticalAlignment="Top" Margin="0,10,0,0"
-                 ItemsSource="{Binding SentryEventItemsViewSource}">
-            <!--<ListView.ItemTemplate>
-                <DataTemplate >
-                    <TextBlock Text="Item"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>-->
-        </ListView>
-    </Grid>
+
+        <ListView SelectionMode="Single"   BorderThickness="0" 
+                   VerticalAlignment="Top" RelativePanel.Below="ComboboxUSB" HorizontalAlignment="Stretch"
+             ItemsSource="{Binding SentryEventItemsViewSource}" DisplayMemberPath="Name"/>
+
+    </RelativePanel>
 </UserControl>

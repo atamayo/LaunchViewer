@@ -1,4 +1,4 @@
-﻿<Page xmlns:my="using:LaunchViewer.Views" 
+﻿<Page xmlns:my="using:LaunchViewer.VideoBrowsing" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:LaunchViewer"
@@ -27,10 +27,9 @@
         <TextBlock Text="{Binding MSG}"  Style="{StaticResource TagLineTextStyle}" Margin="0,15,0,0" Grid.Row="0" HorizontalAlignment="Center" />
 
         <SplitView x:Name="Splitter" IsPaneOpen="False" Grid.Row="1" DisplayMode="Inline" >
-            <SplitView.Pane>
-                <RelativePanel Background="White">
-                    <my:VideoBrowserView DataContext="{Binding VideoBrowserViewModel}" Width="320"/>
-                </RelativePanel>
+           <SplitView.Pane>
+                <my:VideoBrowserView DataContext="{Binding VideoBrowserViewModel}" Width="320"/>
+         
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>

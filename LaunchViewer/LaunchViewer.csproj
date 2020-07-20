@@ -119,13 +119,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\IDispatcher.cs" />
+    <Compile Include="Model\ClipType.cs" />
+    <Compile Include="Model\Clip.cs" />
+    <Compile Include="Model\Video.cs" />
     <Compile Include="Services\USB\DesignPortableStorageService.cs" />
     <Compile Include="Services\USB\DeviceInformationDisplay.cs" />
     <Compile Include="Services\USB\DeviceInformationDisplayFactory.cs" />
     <Compile Include="Services\USB\IDeviceInformationDisplayFactory.cs" />
     <Compile Include="Services\USB\PortableStorageService.cs" />
     <Compile Include="VideoBrowsing\IVideoBrowserViewModel.cs" />
+    <Compile Include="VideoBrowsing\VideoBrowserView.xaml.cs">
+      <DependentUpon>VideoBrowserView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VideoBrowsing\VideoBrowserViewModel.cs" />
     <Compile Include="MainView\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -134,9 +139,6 @@
     <Compile Include="Services\USB\IPortableStorageService.cs" />
     <Compile Include="MainView\MainViewModel.cs" />
     <Compile Include="ViewModelLocator.cs" />
-    <Compile Include="VideoBrowsing\VideoBrowserView.xaml.cs">
-      <DependentUpon>VideoBrowserView.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -192,6 +194,9 @@
     <SDKReference Include="WindowsDesktop, Version=10.0.18362.0">
       <Name>Windows Desktop Extensions for the UWP</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
