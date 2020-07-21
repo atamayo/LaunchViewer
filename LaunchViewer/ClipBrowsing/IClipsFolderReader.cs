@@ -11,5 +11,6 @@ namespace LaunchViewer.ClipBrowsing
         Task GetClipsAsync(ClipType clipType, DeviceInformationDisplay deviceInfoDisplay);
 
         ObservableCollection<Clip> SentryEventItemsViewSource { get; }
+        Clip SelectedEventItem { get; }
     }
 }

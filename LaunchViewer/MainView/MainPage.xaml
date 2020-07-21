@@ -35,8 +35,7 @@
 
              <SplitView.Content>
                 <Grid>
-                    <TextBlock Text="Content" FontSize="54" Foreground="White"  
-                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Text="Content" FontSize="54" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </SplitView.Content>
         </SplitView>

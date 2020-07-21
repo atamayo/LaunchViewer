@@ -16,6 +16,8 @@ namespace LaunchViewer.ClipBrowsing
     {
         public ObservableCollection<Clip> SentryEventItemsViewSource { get; private set; }
 
+        public Clip SelectedEventItem => throw new NotImplementedException();
+
         public ClipsFolderReader()
         {
             SentryEventItemsViewSource = new ObservableCollection<Clip>();
