@@ -47,6 +47,8 @@ namespace LaunchViewer.ClipBrowsing
             }
         }
 
+        public Clip SelectedEventItem => _clipsFolderReader.SelectedEventItem;
+
         private async void LoadDeviceVideos(DeviceInformationDisplay selectedDevice)
         {
             await _clipsFolderReader.GetClipsAsync(ClipType.Sentry, selectedDevice);

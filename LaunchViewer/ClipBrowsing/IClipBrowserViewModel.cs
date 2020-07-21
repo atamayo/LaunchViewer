@@ -13,5 +13,6 @@ namespace LaunchViewer.ClipBrowsing
     {
         ObservableCollection<DeviceInformationDisplay> ResultCollection { get; }
         ObservableCollection<Clip> SentryEventItemsViewSource { get; }
+         Clip SelectedEventItem { get; }
     }
 }

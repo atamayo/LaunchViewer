@@ -28,7 +28,8 @@
         </ComboBox>
 
 
-        <ListView SelectionMode="Single"  
+        <ListView SelectionMode="Single"
+                  SelectedItem="{Binding SelectedEventItem}"
                   VerticalAlignment="Top" 
                   RelativePanel.Below="ComboboxUSB"                   
                   ItemsSource="{Binding SentryEventItemsViewSource}"
